@@ -118,3 +118,14 @@ const ComponentContainer = (ComposedComponent) => {
 export default ComponentContainer(SommeComponent);
 
 ```
+
+
+
+方案思路: 
+
+1. 包装组件，给`新组件`设置的props将会全部传递给`原始组件`，保持API的使用一致性；
+
+2. 在新组的相关生命周期过程中，获取`原始组件`的dom或者数据，动态插入UI以及绑定事件。
+
+
+[预览](https://kangning1206.github.io/webpack-demo/)
