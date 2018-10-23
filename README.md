@@ -31,14 +31,16 @@ $npm run build
 
 1. 自己全新设计一个组件；
 2. 提issues给设计者，满足需求；
-3. 扩展组件
+3. 修改组件源码
+4. 扩展组件
 
 
 优缺点：
 
 1. 开发和设计风格技能要求高，难度大，迫不得已可以这样做；
 2. issues的接纳程度，触发是通用性，否则作者不一定接受，而且响应周期长;
-3. 继承扩展，是否可以扩展与组件本身和业务目标有关系；
+3. 可以组件源码基础上进行修改，然后发布为一个新的npm包，进行版本控制，需要记录源码的版本，因为已脱离了原有组件的升级；
+4. 继承扩展，是否可以扩展与组件本身和业务目标有关系；
 
 ## 继承扩展
 
@@ -85,9 +87,16 @@ step2: 内嵌式原因
 
 ## 穿梭框
 
-(穿梭框)https://ant.design/components/transfer-cn/
+[穿梭框 官网演示]https://ant.design/components/transfer-cn/
 
-[github](https://github.com/ant-design/ant-design/blob/master/components/transfer/index.tsx)
+[github 地址](https://github.com/ant-design/ant-design/blob/master/components/transfer/index.tsx)
+
+1. antd在github上开源的语法typescript，增加了修改成本。
+2. 是多个子组件符合而成。
+3. 右侧显示数据是内部逻辑处理，类型是数组，对数组重新排序，排序规则业务控制；
+
+
+
 
 需求：对于右侧已选择项目进行排序。
 
@@ -126,6 +135,8 @@ export default ComponentContainer(SommeComponent);
 1. 包装组件，给`新组件`设置的props将会全部传递给`原始组件`，保持API的使用一致性；
 
 2. 在新组的相关生命周期过程中，获取`原始组件`的dom或者数据，动态插入UI以及绑定事件。
+
+3. 由于步骤2依赖了组件的UI和数据，请将pageage.json中组件版本，防止升级导致的不兼容；
 
 
 [预览](https://kangning1206.github.io/webpack-demo/)
